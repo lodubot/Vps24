@@ -1,0 +1,23 @@
+# Telegram bot framework (async, v21 API)
+python-telegram-bot==21.6
+
+# Docker SDK for container-based hosting
+docker==7.1.0
+
+# Git operations for "Deploy from GitHub"
+GitPython==3.1.43
+
+# Process / resource monitoring (CPU, RAM, uptime) for hosted bots
+psutil==6.0.0
+
+# HTTP requests (health checks, webhook helpers, etc.)
+requests==2.32.3
+
+# Async file I/O for uploads/backups
+aiofiles==24.1.0
+
+# Filesystem watching for auto-fix / hot-reload detection
+watchdog==5.0.3
+
+# Zip/backup utilities beyond stdlib (progress-friendly archiving)
+py7zr==0.22.0
