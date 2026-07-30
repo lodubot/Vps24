@@ -6,12 +6,12 @@ Edit the values below before running the bot.
 """
 
 # ─── Core Bot Settings ────────────────────────────────────────────────
-BOT_TOKEN = ""
+BOT_TOKEN = "8960153668:AAHJTSblC3SIpSHEeRZCjPgWMGS3HfJFEBM"
 
-OWNER_ID = 123456789
+OWNER_ID = 8100453801
 
 ADMIN_IDS = [
-    123456789
+    8100453801
 ]
 
 # ─── Credits ───────────────────────────────────────────────────────────
