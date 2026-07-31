@@ -6,11 +6,25 @@ handlers, starts the background monitor, and runs polling.
 """
 
 import logging
+import asyncio
 import config
 from telegram import Update
 from telegram.ext import Application, ContextTypes, MessageHandler, filters
 
-from handlers import home, upload, github, mybots, files, logs as logs_handler, env, dashboard, backup, settings, account, admin
+from handlers import (
+    home,
+    upload,
+    github,
+    mybots,
+    files,
+    logs as logs_handler,
+    env,
+    dashboard,
+    backup,
+    settings,
+    account,
+    admin,
+)
 from core import monitor
 from database.db import init_databases
 
@@ -20,7 +34,20 @@ logging.basicConfig(
 )
 logger = logging.getLogger("bot")
 
-HANDLER_MODULES = [home, upload, github, mybots, files, logs_handler, env, dashboard, backup, settings, account, admin]
+HANDLER_MODULES = [
+    home,
+    upload,
+    github,
+    mybots,
+    files,
+    logs_handler,
+    env,
+    dashboard,
+    backup,
+    settings,
+    account,
+    admin,
+]
 
 
 async def text_router(update: Update, context: ContextTypes.DEFAULT_TYPE):
@@ -63,11 +90,19 @@ async def _post_init(app: Application):
 
 
 def main():
+    # Fix 1: Event loop initialization for Python 3.14 & sub-threads
+    try:
+        loop = asyncio.get_event_loop()
+    except RuntimeError:
+        loop = asyncio.new_event_loop()
+        asyncio.set_event_loop(loop)
+
     app = build_app()
     app.post_init = _post_init
     logger.info("Starting bot...")
+    
+    # Fix 2: stop_signals=None for CoCalc / Web terminal environment
     app.run_polling(allowed_updates=Update.ALL_TYPES, stop_signals=None)
-
 
 
 if __name__ == "__main__":
