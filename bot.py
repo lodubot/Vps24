@@ -66,7 +66,8 @@ def main():
     app = build_app()
     app.post_init = _post_init
     logger.info("Starting bot...")
-    app.run_polling(allowed_updates=Update.ALL_TYPES)
+    app.run_polling(allowed_updates=Update.ALL_TYPES, stop_signals=None)
+
 
 
 if __name__ == "__main__":
