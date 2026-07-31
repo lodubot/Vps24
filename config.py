@@ -6,7 +6,7 @@ Edit the values below before running the bot.
 """
 
 # ─── Core Bot Settings ────────────────────────────────────────────────
-BOT_TOKEN = "8960153668:AAHJTSblC3SIpSHEeRZCjPgWMGS3HfJFEBM"
+BOT_TOKEN = "8939341047:AAEwTTXMeKF3hEgkCpk5wZV8E2vgArCmKx0"
 
 OWNER_ID = 8100453801
 
